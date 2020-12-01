@@ -1,8 +1,8 @@
-prefix=/home/mitra/RSE_ND_P2/catkin_ws/install
+prefix=/home/workspace/Go_chase_it_RSEND/catkin_ws/install
 
 Name: ball_chaser
 Description: Description of ball_chaser
 Version: 0.0.0
-Cflags: -I${prefix}/include
+Cflags: 
 Libs: -L${prefix}/lib 
 Requires: 

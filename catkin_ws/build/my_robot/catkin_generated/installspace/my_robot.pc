@@ -1,4 +1,4 @@
-prefix=/home/mitra/RSE_ND_P2/catkin_ws/install
+prefix=/home/workspace/Go_chase_it_RSEND/catkin_ws/install
 
 Name: my_robot
 Description: Description of my_robot

@@ -1,5 +1,5 @@
 # generated from catkin/cmake/template/order_packages.context.py.in
-source_root_dir = "/home/mitra/RSE_ND_P2/catkin_ws/src"
+source_root_dir = "/home/workspace/Go_chase_it_RSEND/catkin_ws/src"
 whitelisted_packages = "".split(';') if "" != "" else []
 blacklisted_packages = "".split(';') if "" != "" else []
-underlay_workspaces = "/opt/ros/kinetic".split(';') if "/opt/ros/kinetic" != "" else []
+underlay_workspaces = "/home/workspace/Go_chase_it_RSEND/catkin_ws/devel;/opt/ros/kinetic".split(';') if "/home/workspace/Go_chase_it_RSEND/catkin_ws/devel;/opt/ros/kinetic" != "" else []

@@ -14,11 +14,11 @@ bool handle_drive_request (ball_chaser::DriveToTarget::Request& req, ball_chaser
     geometry_msgs::Twist motor_command; //motor_command object of type geometry_msgs::Twist
         
     motor_command.linear.x = req.linear_x; //Publish angles to drive the robot
-    motor_command.linear.x = req.angular_z;
+    motor_command.angular.z = req.angular_z;
 
     motor_command_publisher.publish(motor_command);
 
-    res.msg_feedback = "velocities_linear_x: " + std::to_string(req.linear_x) + ", velocities_angular_z: " + std::to_string(req.angular_z);
+    res.msg_feedback = "velocity_linear_x: " + std::to_string(req.linear_x) + ", velocity_angular_z: " + std::to_string(req.angular_z);
     ROS_INFO_STREAM(res.msg_feedback); //Response
 
     return true;

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(ball_chaser)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
@@ -54,10 +54,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-add_service_files(
-   FILES
-   DriveToTarget.srv
-)
+# add_service_files(
+#   FILES
+#   DriveToTarget.srv
+# )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -67,10 +67,10 @@ add_service_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-   DEPENDENCIES
-   std_msgs
- )
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -148,16 +148,6 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-include_directories(include ${catkin_INCLUDE_DIRS})
-
-add_executable(drive_bot src/drive_bot.cpp)
-target_link_libraries(drive_bot ${catkin_LIBRARIES})
-add_dependencies(drive_bot ball_chaser_generate_messages_cpp)
-
-add_executable(process_image src/process_image.cpp)
-target_link_libraries(process_image ${catkin_LIBRARIES})
-add_dependencies(process_image ball_chaser_generate_messages_cpp)
-
 
 #############
 ## Install ##
@@ -168,7 +158,7 @@ add_dependencies(process_image ball_chaser_generate_messages_cpp)
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
+# catkin_install_python(PROGRAMS
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
@@ -213,3 +203,7 @@ add_dependencies(process_image ball_chaser_generate_messages_cpp)
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(drive_bot src/drive_bot.cpp)
+target_link_libraries(drive_bot ${catkin_LIBRARIES})
+add_dependencies(drive_bot ball_chaser_generate_messages_cpp)
