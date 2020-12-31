@@ -10,18 +10,16 @@ ros::Publisher motor_command_publisher;
 // After publishing the requested velocities, a message feedback should be returned with the requested wheel velocities
 bool handle_drive_request (ball_chaser::DriveToTarget::Request& req, ball_chaser::DriveToTarget::Response& res)
 {
-  auto linear_x = (float) req.linear_x;
-  auto angular_z = (float) req.angular_z;
-  
-  ROS_INFO("Service request : DriveToTarget recieved. Start!");
+ 
+  ROS_INFO("Service request : DriveToTarget recieved:- linear_x:%1.2f, angular_z:%1.2f", (float)req.linear_x, (float)req.angular_z);
   geometry_msgs::Twist motor_command; //motor_command object of type geometry_msgs::Twist
 
-  motor_command.linear.x = linear_x; //Publish angles to drive the robot
-  motor_command.angular.z = angular_z;
+  motor_command.linear.x = req.linear_x; //Publish angles to drive the robot
+  motor_command.angular.z = req.angular_z;
 
   motor_command_publisher.publish(motor_command);
 
-  res.msg_feedback = "velocity_linear_x: " + std::to_string(linear_x) + ", velocity_angular_z: " + std::to_string(angular_z);
+  res.msg_feedback = "velocity_linear_x: " + std::to_string(req.linear_x) + ", velocity_angular_z: " + std::to_string(req.angular_z);
   ROS_INFO_STREAM(res.msg_feedback); //Response
 
   return true;
